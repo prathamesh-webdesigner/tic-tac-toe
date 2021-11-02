@@ -6,7 +6,8 @@ let gameover = new Audio("gameover.mp3");
 let turn = 'X';
 let isGameover = false; //for finish game 
 let reset = document.getElementById('reset');
-
+let soundOn = document.getElementById('soundOn');
+let soundOff = document.getElementById('soundOff');
 // music.play();
 // Function to change the turn 
 const changeTurn = () => {
@@ -63,9 +64,17 @@ reset.addEventListener('click', () => {
         element.innerText = '';
     })
     turn = "X";
-    isGameover=false;
+    isGameover = false;
     document.querySelector(".line").style.width = "0vw";
     document.getElementsByClassName("info")[0].innerText = "Turn For" + ' ' + turn;
     document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = '0px';
-    
+
+})
+
+soundOn.addEventListener('click', (e) => {
+    music.play();
+  
+})
+soundOff.addEventListener('click', element => {
+    music.pause();
 })
